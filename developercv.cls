@@ -50,12 +50,12 @@
 
 \geometry{
     paper=a4paper, % Paper size, change to letterpaper for US letter size
-    top=1.35cm, % Top margin
-    bottom=1.25cm, % Bottom margin
-    left=2cm, % Left margin
-    right=2cm, % Right margin
-    headheight=0.75cm, % Header height
-    footskip=1cm, % Space from the bottom margin to the baseline of the footer
+    top=1.3cm, % Top margin
+    bottom=1.3cm, % Bottom margin
+    left=1.75cm, % Left margin
+    right=1.75cm, % Right margin
+    headheight=0.5cm, % Header height
+    footskip=0.5cm, % Space from the bottom margin to the baseline of the footer
     headsep=0.5cm, % Space from the top margin to the baseline of the header
 %showframe, % Uncomment to show how the type block is set on the page
 }
@@ -164,11 +164,6 @@
     \end{tikzpicture}
 }
 
-% Command to output a bubble at a specific position with a specific size
-\newcommand{\bubble}[5]{
-    \filldraw[fill=black, draw=none] (#1,0.5) circle (#3); % Bubble
-    \node[label=\textcolor{black}{#4}] at (#1,0.7) {}; % Label
-}
 
 %----------------------------------------------------------------------------------------
 %	CUSTOM SECTIONS

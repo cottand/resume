@@ -14,7 +14,7 @@
 
         % If your name is very short, use just one of the lines below
         % If your name is very long, reduce the font size or make the minipage wider and reduce the others proportionately
-        \colorbox{black}{{\Huge\textcolor{white}{\textbf{\textsc{Nico D'Cotta}}}}} % First name
+        \colorbox{black}{{\HUGE\textcolor{white}{\textbf{{Nico D'Cotta}}}}} % First name
 
         \vspace{6pt}
 
@@ -38,13 +38,12 @@
         \icon{Linkedin}{12}{\href{https://linkedin.com/in/ndcotta}{linkedin.com/in/ndcotta}}
     \end{minipage}
 
-    \vspace{0.5cm}
+    \vspace{0.15cm}
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION, SKILLS AND TECHNOLOGIES
 %----------------------------------------------------------------------------------------
 
-%\hfill % Whitespace between
 
 %----------------------------------------------------------------------------------------
 %	EXPERIENCE
@@ -87,7 +86,6 @@
 %----------------------------------------------------------------------------------------
 
     \cvsect{Education}
-
     \begin{entrylist}
         \entry
         {2018 -- 06/2022}
@@ -110,20 +108,18 @@
         {French Baccalaureate (S-SI) --  \emph{Highest Honours}}
         {French Lycée of Madrid}
         {
-            High-school diploma \textbf{Engineering Sciences with Further Maths} specialisations,
+            High-school diploma with \textbf{Engineering Sciences with Further Maths} specialisations,
             and completed optional Portuguese and Music modules.
 
             Extracurriculars include two Model UNs, Drama, Choir, student representative, competing in
-        basketball team.
+            the basketball team.
         }
     \end{entrylist}
 
     \cvsectdesc{Projects}{
-        \hspace{2.9em}
-        \href{https://nico.dcotta.eu/projects}{see my full portfolio at nico.dcotta.eu}
+        \hspace{0.027\textwidth}
+        \href{https://nico.dcotta.eu/\#/projects}{see my full portfolio at nico.dcotta.eu}
     }
-
-
     \begin{entrylist}
         \projEntry
         {DJStreamr, collaborative streaming service for DJs}
@@ -139,8 +135,8 @@
         {Kotlin, JVM bytecode, ARM11 assembly}
         {
             Multiplatform compiler from WACC (a toy language) to JVM bytecode and ARM11 64-byte
-            assembly that supports basic constructs like stack allocated primitives, and
-            heap-allocated arrays and pairs.
+        assembly that supports basic constructs like stack allocated primitives, and
+        heap-allocated arrays and pairs.
         }
 
         \projEntry{PintOS, UNIX-like OS}
@@ -148,7 +144,7 @@
         {C, x86 assembly}
         {
             Pint-sized OS with features such as advanced scheduling, paging, virtual memory and user
-            programs with support for some of the C stdlib.
+        programs with support for some of the C stdlib.
         }
 
         \projGhEntry{ICHack'19 \textit{(Hackathon)} -- Best Mobile App Award}
@@ -163,7 +159,7 @@
         {Typescript, VueJS, Python}
         {
             Interactive code generator (for Python Tensorflow) to empower research by abstracting
-            away from code, written in Typescript with VueJS
+        away from code, written in Typescript with VueJS
         }
 
 
@@ -171,7 +167,7 @@
         {cottand/multi-paxos}
         {Elixir, Paxos}
         {
-        Implementation of a variation of the Paxos consensus algorithm, as specified in the paper
+            Implementation of a variation of the Paxos consensus algorithm, as specified in the paper
         \href{https://dl.acm.org/citation.cfm?id=2673577}{Paxos Made Moderately Complex}
         }
     \end{entrylist}
@@ -180,31 +176,47 @@
 %	ADDITIONAL INFORMATION
 %----------------------------------------------------------------------------------------
 
-    \begin{minipage}[t]{0.3\textwidth}
+    \begin{minipage}[t]{0.45\textwidth}
         \vspace{-\baselineskip} % Required for vertically aligning minipages
 
         \cvsect{Languages}
 
+        \vspace{-0.5em}
         \textbf{English} - proficient (C2 certification)\\
         \textbf{Spanish} - native\\
         \textbf{French} - proficient\\
-        \textbf{Portuguese} - rudimentary
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.3\textwidth}
-        \vspace{-\baselineskip} % Required for vertically aligning minipages
+        \textbf{Portuguese} - rudimentary\\
+
 
         \cvsect{Hobbies}
 
-        I love... \lorem
+        \vspace{-0.5em}
+        I enjoy DJing as well as kitesurfing and rock climbing!
+
     \end{minipage}
     \hfill
-    \begin{minipage}[t]{0.3\textwidth}
+    \hspace{0.05\textwidth}
+    \begin{minipage}[t]{0.5\textwidth}
         \vspace{-\baselineskip} % Required for vertically aligning minipages
 
-        \cvsect{Non profit}
+        \cvsect{Technologies}
 
-        I help... \lorem
+        \vspace{-0.5em}
+        \textbf{Proficient in} JVM (Kotlin, Java), Gradle
+
+        \vspace{0.6em}
+        \textbf{Experience with}
+        AWS (Lambda, DynamoDB EC2, S3, CodeDeploy, API Gateway)
+
+        \vspace{0.6em}
+
+        Python, C, Haskell, Typescript, Elixir
+
+        \vspace{0.6em}
+
+        gRPC + protobufs, Akka, PostgreSQL, Docker, APM, ConcourseCI, TravisCI, GitlabCI, React,
+        VueJS
+
     \end{minipage}
 
 %----------------------------------------------------------------------------------------

@@ -36,22 +36,20 @@
 
 \usepackage[hidelinks]{hyperref} % Required for links but hide the default boxes around links
 
-\newcommand{\lorem}{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.} % Dummy text
-
 \pagestyle{empty} % No headers or footers
 
-\usepackage{moresize} % Provides more font size commands (\HUGE and \ssmall)
+\RequirePackage{moresize} % Provides more font size commands (\HUGE and \ssmall)
 
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT
 %----------------------------------------------------------------------------------------
 
-\usepackage{geometry} % Required for adjusting page dimensions and margins
+\RequirePackage{geometry} % Required for adjusting page dimensions and margins
 
 \geometry{
     paper=a4paper, % Paper size, change to letterpaper for US letter size
-    top=1.3cm, % Top margin
-    bottom=1.3cm, % Bottom margin
+    top=1cm, % Top margin
+    bottom=1cm, % Bottom margin
     left=1.75cm, % Left margin
     right=1.75cm, % Right margin
     headheight=0.5cm, % Header height
@@ -78,7 +76,7 @@
 
 %------------------------------------------------
 
-\usepackage{fontawesome} % Required for FontAwesome icons
+\RequirePackage{fontawesome} % Required for FontAwesome icons
 
 % Command to output an icon in a black square box with text to the right
 \newcommand{\icon}[3]{% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
@@ -92,20 +90,6 @@
     \vcenteredhbox{\colorbox{white}{\makebox(#2, #2){\textcolor{black}{\large\csname fa#1\endcsname}}}}% Icon and box
     \hspace{0.01cm}% Whitespace
     \vcenteredhbox{\textcolor{black}{#3}}% Text
-}
-%----------------------------------------------------------------------------------------
-%	GRAPHICS DEFINITIONS
-%----------------------------------------------------------------------------------------
-
-\usepackage{tikz} % Required for creating the plots
-\usetikzlibrary{shapes, backgrounds}
-\tikzset{x=1cm, y=1cm} % Default tikz units
-
-% Command to vertically centre adjacent content
-\newcommand{\vcenteredhbox}[1]{% The only parameter is for the content to centre
-    \begingroup%
-    \setbox0=\hbox{#1}\parbox{\wd0}{\box0}%
-    \endgroup%
 }
 
 %----------------------------------------------------------------------------------------

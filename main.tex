@@ -1,5 +1,6 @@
 \documentclass[9pt]{developercv}
-\usepackage{xcolor} % Default font size, values from 8-12pt are recommended
+\usepackage{xcolor}
+\usepackage{textcomp} % Default font size, values from 8-12pt are recommended
 
 %----------------------------------------------------------------------------------------
 
@@ -16,7 +17,7 @@
 
         % If your name is very short, use just one of the lines below
         % If your name is very long, reduce the font size or make the minipage wider and reduce the others proportionately
-        \colorbox{black}{{\HUGE\textcolor{white}{\textbf{{Nico D'Cotta}}}}} % First name
+        \colorbox{\colour}{{\HUGE\textcolor{white}{\textbf{{Nico D'Cotta}}}}} % First name
 
         \vspace{6pt}
 
@@ -40,7 +41,7 @@
         \icon{Linkedin}{12}{\href{https://linkedin.com/in/ndcotta}{linkedin.com/in/ndcotta}}
     \end{minipage}
 
-    \vspace{0.15cm}
+    \vspace{0.1cm}
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION, SKILLS AND TECHNOLOGIES
@@ -55,7 +56,9 @@
 
     \begin{entrylist}
         \entry
-        {06/2020 -- today\\\footnotesize{part time}}
+        {
+            06/2020 -- today\\\footnotesize{intern,\\then part time, \\then full time, \\then part time}\\
+        }
         {Platform engineer}
         {\href{https://blockchain.com/about}{Blockchain.com}}
         {
@@ -68,6 +71,7 @@
             \para
             Scaling up distributed systems with a microservices event-driven architecture
 
+            \para
             Engineering tooling, like \textbf{Gradle} plugins, in order to facilitate development
         and allow for faster iterations
         }
@@ -104,7 +108,7 @@
             Logic-based AI,
             Type Systems for Programming Languages,
             Simulation \& Modelling.
-%
+
             \para
             Additional Business School modules: Finance \& Financial Markets,
             Business Strategy, Project Management.
@@ -119,7 +123,7 @@
 
             \para
             Extracurriculars include two Model UNs, Drama, Choir, student representative, competing in
-            the basketball team.
+        the basketball team.
         }
     \end{entrylist}
 
@@ -183,6 +187,29 @@
 %	ADDITIONAL INFORMATION
 %----------------------------------------------------------------------------------------
 
+    \begin{minipage}[t]{0.53\textwidth}
+        \vspace{-\baselineskip} % Required for vertically aligning minipages
+
+        \cvsect{Technologies}
+
+        \vspace{-0.5em}
+        \textbf{Proficient in} JVM (Kotlin, Java), Gradle
+
+        \para
+        \textbf{Experience with}
+        AWS (Lambda, DynamoDB EC2, S3, CodeDeploy, API Gateway), Nomad
+
+        \para
+
+        Python, C, Haskell, Typescript, Elixir
+
+        \para
+
+        gRPC + protobufs, Kafka, Akka, PostgreSQL, Docker, APM, ConcourseCI, TravisCI, GitlabCI, React,
+        VueJS
+
+    \end{minipage}
+    \hfill
     \begin{minipage}[t]{0.45\textwidth}
         \vspace{-\baselineskip} % Required for vertically aligning minipages
 
@@ -199,30 +226,6 @@
 
         \vspace{-0.5em}
         I enjoy DJing as well as kitesurfing and rock climbing!
-
-    \end{minipage}
-    \hfill
-    \hspace{0.05\textwidth}
-    \begin{minipage}[t]{0.5\textwidth}
-        \vspace{-\baselineskip} % Required for vertically aligning minipages
-
-        \cvsect{Technologies}
-
-        \vspace{-0.5em}
-        \textbf{Proficient in} JVM (Kotlin, Java), Gradle
-
-        \para
-        \textbf{Experience with}
-        AWS (Lambda, DynamoDB EC2, S3, CodeDeploy, API Gateway)
-
-        \para
-
-        Python, C, Haskell, Typescript, Elixir
-
-        \para
-
-        gRPC + protobufs, Akka, PostgreSQL, Docker, APM, ConcourseCI, TravisCI, GitlabCI, React,
-        VueJS
 
     \end{minipage}
 

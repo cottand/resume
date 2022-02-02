@@ -1,5 +1,4 @@
 .idea
-out
 .idea
 chapters/background.aux
 *.bib
@@ -17,3 +16,4 @@ ignore
 *.lot
 *.aux
 **/*.aux
+!out/main.pdf

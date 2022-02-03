@@ -45,6 +45,7 @@
 %----------------------------------------------------------------------------------------
 
 \RequirePackage{geometry} % Required for adjusting page dimensions and margins
+\RequirePackage{xcolor}
 
 \geometry{
     paper=a4paper, % Paper size, change to letterpaper for US letter size
@@ -73,32 +74,38 @@
 %\usepackage{roboto}
 
 \renewcommand*\familydefault{\sfdefault} % Force the sans-serif version of any font used
-\newcommand{\colour}{teal}
-%------------------------------------------------
-
+\definecolor{accent}{rgb}{0.149, 0.467, 0.541}
+%	\definecolor{accent}{rgb}{0.0, 0.0, 0.0}
 \RequirePackage{fontawesome} % Required for FontAwesome icons
+
+\newcommand{\valignTwo}[2]{
+    $
+    \begin{array}{l}
+        #1
+    \end{array}
+    $
+    #2
+}
 
 % Command to output an icon in a black square box with text to the right
 \newcommand{\icon}[3]{% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
-    $
-    \begin{array}{l}
-    \colorbox{\colour}{\makebox(#2, #2){\textcolor{white}{\large\csname fa#1\endcsname}}}
-    \end{array}
-    $
-    \hspace{-0.1cm}% Whitespace
-    \vcenteredhbox{\textcolor{black}{#3}}% Text
+    \valignTwo{
+        \colorbox{accent}{\makebox(#2, #2){\textcolor{white}{\large\csname fa#1\endcsname}}}
+    }{
+        \hspace{-0.15cm}% Whitespace
+        \vcenteredhbox{\textcolor{black}{#3}}% Text
+    }
 }
 % Black Icon with no box
 % #1 icon name, #2 size #3 text
 \newcommand{\plainicon}[3]{
 %    \hspace{0.01cm}% Whitespace
-$
-\begin{array}{l}
-    \colorbox{white}{\makebox(#2, #2){\textcolor{\colour}{\large\csname fa#1\endcsname}}}
-\end{array}
-$
-\hspace{-1.1em}
-    \textcolor{black}{#3}
+    \valignTwo{
+        \colorbox{white}{\makebox(#2, #2){\textcolor{accent}{\large\csname fa#1\endcsname}}}
+    }{
+        \hspace{-1.2em}
+        \textcolor{black}{#3}
+    }
 }
 
 
@@ -109,12 +116,12 @@ $
 % Command to output section title headings
 \newcommand{\cvsect}[1]{% The only parameter is the section text
 %    \vspace{0.2em} % Whitespace before the section title
-    \colorbox{\colour}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}\\% Section title
+    \colorbox{accent}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}\\% Section title
 }
 
 \newcommand{\cvsectdesc}[2]{% The only parameter is the section text
     \vspace{\baselineskip} % Whitespace before the section title
-    \colorbox{\colour}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}% Section title
+    \colorbox{accent}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}% Section title
     \space \colorbox{white}{\textcolor{black}{\small{\textit{#2}}}}\\% Section title
 }
 
@@ -139,14 +146,16 @@ $
 \newcommand{\entryWidthRight}{0.85}
 
 \newcommand{\entry}[4]{% First argument for the leftmost date(s) text, second is for the bold entry heading, third is for the bold right-aligned entry qualifier and the fourth is for the entry description
-    \parbox[t]{\entryWidth\textwidth}{% 17.5% of the text width of the page
+    \parbox[t]{\entryWidth\textwidth}{
             {\small    #1 }
-    }%
-    &\parbox[t]{\entryWidthRight\textwidth}{% 82.5% of the text width of the page
-            {\large\textbf{#2} }
-        \hfill% Horizontal whitespace
-        {\small \textbf{\textcolor{black}{#3}}}\\% Right-aligned entry qualifier text
-        #4 % Entry description text
+    }
+    &\parbox[t]{\entryWidthRight\textwidth}{
+            {\large\textbf{#2}, at \textbf{#3} }
+%        \hfill% Horizontal whitespace
+%        {\small \textbf{\textcolor{black}{#3}}}\\% Right-aligned entry qualifier text
+    \para
+    \\
+    #4 % Entry description text
     }\\\\}
 
 % Command to output a separator slash between lists, e.g. '  /  '

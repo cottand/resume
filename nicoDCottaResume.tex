@@ -53,136 +53,20 @@
 %----------------------------------------------------------------------------------------
 
     \cvsect{Experience}
-
-    \begin{entrylist}
-        \entry
-        {
-            06/2020 -- today\\\footnotesize{intern,\\then part time, \\then full time, \\then part time}\\
-        }
-        {Platform engineer}
-        {\href{https://blockchain.com/about}{Blockchain.com}}
-        {
-            Performing production incident response - with \textbf{PagerDuty}
-
-            \para
-            Shipping under time constraints on several large \textbf{JVM} codebases that power the
-            cryptocurrency exchange and wallet
-
-            \para
-            Scaling up distributed systems with a microservices event-driven architecture
-
-            \para
-            Engineering tooling, like \textbf{Gradle} plugins, in order to facilitate development
-        and allow for faster iterations
-        }
-        \entry
-        {06/2020 -- \\ 10/2020}
-        {Software Engineer Intern}
-        {Emit, Inc.}
-        {
-            Four-person startup where I worked closely with co-founders to pivot into time data
-            analytics.
-
-            \para
-            Developed a data processing pipeline and libraries in \textbf{Kotlin} and
-            \textbf{Python} on top of serverless tech on \textbf{AWS (Lambda, DynamoDB,
-                ElasticSearch)}
-        }
-    \end{entrylist}
+    \input{experience}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
 
     \cvsect{Education}
-    \begin{entrylist}
-        \entry
-        {2018 -- 06/2022}
-        {MEng Computer Science -- \emph{{\small currently} First Class Honours}}
-        {Imperial College London}
-        {
-            Focus on Software Engineering,
-            Distributed Systems,
-            Network and Computer Security,
-            Systems and Data Scalability,
-            Logic-based AI,
-            Type Systems for Programming Languages,
-            Simulation \& Modelling.
-
-            \para
-            Additional Business School modules: Finance \& Financial Markets,
-            Business Strategy, Project Management.
-        }
-        \entry
-        {2015-2018}
-        {French Baccalaureate (S-SI) --  \emph{Highest Honours}}
-        {French Lycée of Madrid}
-        {
-            High-school diploma with \textbf{Engineering Sciences with Further Maths} specialisations,
-            and completed optional Portuguese and Music modules.
-
-            \para
-            Extracurriculars include two Model UNs, Drama, Choir, student representative, competing in
-        the basketball team.
-        }
-    \end{entrylist}
+    \input{education}
 
     \cvsectdesc{Projects}{
         \hspace{0.027\textwidth}
         \href{https://nico.dcotta.eu/\#/projects}{see my full portfolio at nico.dcotta.eu}
     }
-    \begin{entrylist}
-        \projEntry
-        {DJStreamr, collaborative streaming service for DJs}
-        {\href{https://djstreamr.com}{djstreamr.com}}
-        {AWS (Lambda, DynamoDB, EC2), Kotlin, VueJS, TS}
-        {
-            Music synchronisation protocol implemented as a webapp with an event-driven platform
-            architecture which leverages serverless technology.
-        }
-
-        \projGhEntry{WACC, multiplatform compiler}
-        {cottand/WACC}
-        {Kotlin, JVM bytecode, ARM11 assembly}
-        {
-            Multiplatform compiler from WACC (a toy language) to JVM bytecode and ARM11 64-byte
-        assembly that supports basic constructs like stack allocated primitives, and
-        heap-allocated arrays and pairs.
-        }
-
-        \projEntry{PintOS, UNIX-like OS}
-        {\href{https://pintos-os.org/}{pintos-os.org}}
-        {C, x86 assembly}
-        {
-            Pint-sized OS with features such as advanced scheduling, paging, virtual memory and user
-        programs with support for some of the C stdlib.
-        }
-
-        \projGhEntry{ICHack'19 \textit{(Hackathon)} -- Best Mobile App Award}
-        {cottand/ICHack2019}
-        {Unity, C\#}
-        {
-            AR-powered teaching app in that brings interactive 3D models to students’ phones.
-        }
-
-        \projEntry{IVANN, neural-network building GUI}
-        {\href{https://icivann.github.io/ivann/}{IVANN website}}
-        {Typescript, VueJS, Python}
-        {
-            Interactive code generator (for Python Tensorflow) to empower research by abstracting
-        away from code, written in Typescript with VueJS
-        }
-
-
-        \projGhEntry{Multi-Paxos}
-        {cottand/multi-paxos}
-        {Elixir, Paxos}
-        {
-            Implementation of a variation of the Paxos consensus algorithm, as specified in the paper
-        \href{https://dl.acm.org/citation.cfm?id=2673577}{Paxos Made Moderately Complex}
-        }
-    \end{entrylist}
-
+    \input{projects}
 %----------------------------------------------------------------------------------------
 %	ADDITIONAL INFORMATION
 %----------------------------------------------------------------------------------------

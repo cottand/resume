@@ -16,4 +16,4 @@ ignore
 *.lot
 *.aux
 **/*.aux
-!out/main.pdf
+!out/*.pdf

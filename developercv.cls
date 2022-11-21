@@ -119,7 +119,7 @@
     \colorbox{accent}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}\\% Section title
 }
 
-\newcommand{\cvsectdesc}[2]{% The only parameter is the section text
+\newcommand{\cvsectdesc}[2]{% Same as \cvsect except with a small description
     \vspace{\baselineskip} % Whitespace before the section title
     \colorbox{accent}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}% Section title
     \space \colorbox{white}{\textcolor{black}{\small{\textit{#2}}}}\\% Section title

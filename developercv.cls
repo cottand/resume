@@ -34,7 +34,9 @@
 
 \setlength{\parindent}{0mm} % Suppress paragraph indentation
 
-\usepackage[hidelinks]{hyperref} % Required for links but hide the default boxes around links
+\RequirePackage{xcolor}
+
+\RequirePackage[hidelinks]{hyperref} % Required for links but hide the default boxes around links
 
 \pagestyle{empty} % No headers or footers
 
@@ -45,8 +47,6 @@
 %----------------------------------------------------------------------------------------
 
 \RequirePackage{geometry} % Required for adjusting page dimensions and margins
-\RequirePackage{xcolor}
-
 \geometry{
     paper=a4paper, % Paper size, change to letterpaper for US letter size
     top=1cm, % Top margin
@@ -93,7 +93,7 @@
         \colorbox{accent}{\makebox(#2, #2){\textcolor{white}{\large\csname fa#1\endcsname}}}
     }{
         \hspace{-0.15cm}% Whitespace
-        \vcenteredhbox{\textcolor{black}{#3}}% Text
+        $\vcenter{\hbox{ \textcolor{black}{#3} } }$% Text
     }
 }
 % Black Icon with no box

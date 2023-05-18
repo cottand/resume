@@ -75,6 +75,7 @@
 
 \renewcommand*\familydefault{\sfdefault} % Force the sans-serif version of any font used
 \definecolor{accent}{rgb}{0.149, 0.467, 0.541}
+%\definecolor{accent}{rgb}{0.0, 0.28, 0.67}
 %	\definecolor{accent}{rgb}{0.0, 0.0, 0.0}
 \RequirePackage{fontawesome} % Required for FontAwesome icons
 

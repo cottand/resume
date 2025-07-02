@@ -1,83 +1,129 @@
-#import "@preview/vantage-cv:1.0.0": vantage-cv, styled-link, term, skill
+#import "template.typ": vantage, styled-link, term, icon
 #let configuration = yaml("configuration.yaml")
 
+#let job(position, company, companyLink, dates, content, progression: ()) = {
+  let link = styled-link(companyLink, text(weight: "bold", company))
+  let progression = text(size: 9pt)[_#progression.join(" \u{2192} ")_]
+  [
+   === #position #h(1fr) #{text(weight: "light", size: 9pt, [#icon("calendar", boxed: false, shift: 2.5pt) #dates])}\
+   #link #h(1fr) #progression\
+  // #link #h(1fr)  #icon("calendar") #dates
 
-#vantage-cv(
+  #content
+  ]
+}
+
+
+#vantage(
   name: configuration.contacts.name,
-  position: configuration.position,
   links: (
-    (name: "email", link: "mailto:"+ configuration.contacts.email),
-    (name: "website", link: configuration.contacts.website.url, display: configuration.contacts.website.displayText),
-    (name: "github", link: configuration.contacts.github.url, display: configuration.contacts.github.displayText),
-    (name: "linkedin", link: configuration.contacts.linkedin.url, display: configuration.contacts.linkedin.displayText),
-    (name: "location", link: "", display: configuration.contacts.address)
+    (icon: "envelope", link: "mailto:"+ configuration.contacts.email),
+    (icon: "globe", link: configuration.contacts.website.url, display: configuration.contacts.website.displayText),
+    (icon: "github", link: configuration.contacts.github.url, display: configuration.contacts.github.displayText),
+    (icon: "linkedin-in", link: configuration.contacts.linkedin.url, display: configuration.contacts.linkedin.displayText),
+    (icon: "location-pin", link: "", display: configuration.contacts.address)
   ),
-  tagline: (configuration.tagline),
+  tagline: [
+    Backend Software Engineer with experience in building and scaling distributed systems, and in deploying
+    and securing platform infrastructure. Domain experience in financial services, cybersecurity, and crypto.
+    ],
+    topSide:[
+    ],
+    bottomSide: [
+    == Projects
+
+    #for project in configuration.projects [
+      === #link(project.link)[#project.name]
+
+#raw(project.technologies)
+
+      #project.description
+    ],
+    ],
   [
 
     == Experience
 
-    #for job in configuration.jobs [
-      === #job.position \
-      _#link(job.company.link)[#job.company.name]_ - #styled-link(job.product.link)[#job.product.name] \
-      #term[#job.from --- #job.to][#job.location]
+    #job(
+        [Senior Backend Engineer],
+        [Monzo Bank],
+        "https://monzo.com",
+        [11/'23 --- today],
+        progression: ("Engineer III (Security)",  "Senior Engineer (Payments)"),
+        )[
+      - Worked both on Payments as building products for retail customers, and in Security in an SRE-heavy role with wide scope.
+      - Owned secret-management, public-key infrastructure, and preventive and detective security controls (eg. around intrusion, exfiltration, DDoS, etc).
+      - Maintained critical zero-downtime infrastructure such as Kubernetes, cloud networking, and sensitive key material management.
+    ]
 
-      #for point in job.description [
-        - #point
-      ]
+    #job(
+        [Senior Backend Engineer],
+        [Blockchain.com],
+        "https://blockchain.com",
+        [06/'20 --- 11/'23],
+        progression: ("part-time",  "Engineer", "Senior Engineer"),
+        )[
+      - Owned several JVM (mainly Kotlin) real-time financial services critical for business operation and central to user experience and transaction auditing; like ledger-keeping/accounting and indicative pricing.
+      - Designed and scaled up stateful distributed systems with an event-driven architecture.
+      - Reviewed systems' architecture designs and software development methods to cultivate sustainable engineering practices and achieve operational excellence within the wider company.
+    ]
+
+    #job(
+        [Software Engineer Intern],
+        [Emit],
+        "aa",
+        [06/'19 --- 10/'19],
+        )[
+      - Four-person startup with its own smartwatch aiming to provide time-analytics to institutional customers.
+      - Provided real-time insights on customer data by developing data processing pipelines and libraries in Kotlin and Python on top of serverless tech on AWS (Lambda, DynamoDB, ElasticSearch).
     ]
 
   ],
   [
-    == Objective
 
-    #configuration.objective
+    == Technologies
 
+    *Proficient in* Go, Kotlin, Nix + NixOS, Gradle
+
+    *Experience with* Java, Python, C, Haskell, Typescript, Elixir
+
+    Nomad, Kubernetes, Consul, Vault, Terraform
+
+    AWS (EKS, EC2, S3, WAF + Shield, DynamoDB, IAM)
+
+    gRPC + protobufs, Kafka, Akka, PostgreSQL, Redis, Cassandra, APM, Docker, React
 
     == Education
 
-    #for edu in configuration.education [
-      === #if edu.place.link != "" [
-        #link(edu.place.link)[#edu.place.name]\
-      ] else [
-        #edu.place.name\
-      ]
+        #let edu(name, diploma, nameUrl, honours) = {
+          let link = styled-link(nameUrl, text(weight: "bold", name))
+          [
+            === #link\
+            #diploma \
+            #emph(honours)
+          ]
+        }
 
-      #edu.from - #edu.to #h(1fr) #edu.location
+        #edu(
+            "Imperial College London",
+            "Computer Science Integrated MEng",
+            "https://www.imperial.ac.uk/",
+            "First Class Honours",
+        )
 
-      #edu.degree in #edu.major
+        #edu(
+            "French Lycée of Madrid",
+            "S-SI Engineering Sciences Baccalaureate",
+            "https://www.lfmadrid.net/es/",
+            "Highest Honours",
+        )
 
-    ]
+    == Actual Languages
 
-    == Technical Expertise
-
-    #for expertise in configuration.technical_expertise [
-      #skill(expertise.name, expertise.level)
-    ]
-
-    == Skills/Exposure
-
-    #for skill in configuration.skills [
-      • #skill
-    ]
-
-    == Methodology/Approach
-    #for method in configuration.methodology [
-      • #method
-    ]
-
-    == Tools
-    #for tool in configuration.tools [
-      • #tool
-    ]
-
-    == Achievements/Certifications
-
-    #for achievement in configuration.achievements [
-      === #achievement.name
-      \
-      #achievement.description
-    ]
+    - English - bilingual
+    - Spanish - native
+    - French - bilingual
+    - Portuguese - advanced level
 
   ]
 )

@@ -8,7 +8,7 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [ pkgs.fish pkgs.texlive.combined.scheme-full ];
+          packages = [ pkgs.fish pkgs.texlive.combined.scheme-full pkgs.typst ];
           shellHook = "fish && exit";
         };
       }));

@@ -1,5 +1,4 @@
 #import "template.typ": vantage, styled-link, term, icon
-#let configuration = yaml("configuration.yaml")
 
 #let job(position, company, companyLink, dates, content, progression: ()) = {
   let link = styled-link(companyLink, text(weight: "bold", company))
@@ -7,38 +6,70 @@
   [
    === #position #h(1fr) #{text(weight: "light", size: 9pt, [#icon("calendar", boxed: false, shift: 2.5pt) #dates])}\
    #link #h(1fr) #progression\
-  // #link #h(1fr)  #icon("calendar") #dates
 
   #content
   ]
 }
 
+#let project(name, link, technologies, description) = {
+  [
+    === #styled-link(link)[#name]
+
+    #raw(technologies)
+
+    #description
+  ]
+}
+
 
 #vantage(
-  name: configuration.contacts.name,
+  name: "Nico D'Cotta",
   links: (
-    (icon: "envelope", link: "mailto:"+ configuration.contacts.email),
-    (icon: "globe", link: configuration.contacts.website.url, display: configuration.contacts.website.displayText),
-    (icon: "github", link: configuration.contacts.github.url, display: configuration.contacts.github.displayText),
-    (icon: "linkedin-in", link: configuration.contacts.linkedin.url, display: configuration.contacts.linkedin.displayText),
-    (icon: "location-pin", link: "", display: configuration.contacts.address)
+    (icon: "envelope", link: "mailto:nico@dcotta.com"),
+    (icon: "globe", link: "https://nico.dcotta.com", display: "nico.dcotta.com"),
+    (icon: "github", link: "https://github/cottand", display: "github/cottand"),
+    (icon: "linkedin-in", link: "https://linkedin.com/in/nicodcotta", display: "linkedin/nicodcotta"),
+    (icon: "location-pin", link: "", display: "London, UK")
   ),
   tagline: [
-    Backend Software Engineer with experience in building and scaling distributed systems, and in deploying
-    and securing platform infrastructure. Domain experience in financial services, cybersecurity, and crypto.
+    Backend Software Engineer with experience in building and scaling distributed systems, as well as in deploying
+    and securing platform infrastructure. Domain experience in financial services, cybersecurity, and custodial crypto-currencies.
     ],
     topSide:[
     ],
     bottomSide: [
     == Projects
 
-    #for project in configuration.projects [
-      === #link(project.link)[#project.name]
+  #grid(
+    columns: 2,
+    gutter: 1em,
+    project(
+      "Self-hosted infrastructure",
+      "https://nico.dcotta.com/projects/selfhosted-homelab",
+      "Nomad, Nix, NixOS, Go",
+      "A HA self-hosted cluster with all the features you can expect from an enterprise-grade platform, including container orchestration, service discovery, a service mesh, a distributed filesystem, etc."
+    ),
+    project(
+      "DJStreamr, collaborative streaming service for DJs",
+      "https://djstreamr.com",
+      "AWS (Lambda, DynamoDB, EC2), Kotlin, VueJS",
+      "Music synchronisation protocol implemented as a webapp with an event-driven platform architecture which leverages serverless technology."
+    ),
 
-#raw(project.technologies)
+    project(
+      "Multi-Paxos implementation",
+      "https://github.com/cottand/multi-paxos",
+      "Elixir, Paxos",
+      "Implementation of a variation of the Paxos consensus algorithm (comparable to Raft), as specified in the paper Paxos Made Moderately Complex."
+    ),
+    project(
+      "WACC, multiplatform compiler",
+      "https://github.com/cottand/WACC",
+      "Kotlin, JVM bytecode, ARM11 assembly",
+      "Multiplatform compiler for WACC (a toy language) to JVM bytecode and ARM11 64-byte assembly that supports basic constructs like stack-allocated primitives, and heap-allocated arrays and pairs."
+    )
+  )
 
-      #project.description
-    ],
     ],
   [
 
@@ -120,10 +151,17 @@
 
     == Actual Languages
 
-    - English - bilingual
-    - Spanish - native
-    - French - bilingual
-    - Portuguese - advanced level
+
+
+  #grid(
+    columns: 2,
+    gutter: 1em,
+    [- English:], [bilingual],
+    [- Spanish:], [native],
+    [- French:],  [bilingual],
+    [- Portuguese:], [advanced level],
+    //[- Turkish:], [getting there],
+    )
 
   ]
 )

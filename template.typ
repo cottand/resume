@@ -4,7 +4,6 @@
 #let link_colour = rgb(38, 119, 138)
 
 #let icon(name, shift: 1.5pt, boxed: true) = {
-
   box(
     baseline: shift,
     //height: 20pt,
@@ -17,24 +16,6 @@
     //text(size:10pt, weight: "regular", stroke: 0.4pt + white, fill: black.transparentize(100%), font: ("Font Awesome 6 Free", "Font Awesome 6 Brands"), iconText)
   )
   h(3pt)
-}
-
-#let findMe(services) = {
-  set text(8pt)
-  let icon = icon.with(shift: 2.5pt)
-
-  services.map(service => {
-      icon(service.icon)
-
-      if "display" in service.keys() {
-        link(service.link)[#{service.display}]
-      } else {
-        link(service.link)
-      }
-    }).join(h(12pt))
-  [
-
-  ]
 }
 
 #let term(period, location) = {
@@ -59,7 +40,7 @@
     title: name + "'s CV",
     author: name,
   )
-  set text(10pt, weight: "light", font: "Fira Sans")
+  set text(9.5pt, weight: "light", font: "Fira Sans")
   set par(leading: 0.65em)
 
   // Set bullet point style
@@ -77,7 +58,7 @@
   show heading.where(
     level: 2,
   ): it => [
-    #v(0.4em)
+    #v(0.5em)
     #box(
       fill: primary_colour,
       inset: (x: 3pt, y: 3pt),
@@ -88,13 +69,13 @@
         [#upper(it.body)]
       )
     )
-    #v(0.1em)
+    //#v(0em)
   ]
 
   show heading.where(
     level: 3
   ): it => [
-    #v(0.5em)
+    #v(0.2em)
     #text(
       size: 12pt,
       weight: "bold",
@@ -129,9 +110,11 @@
         inset: 6pt,
         radius: 2pt,
         text(fill: white, size: 20pt, weight: "bold", [#name])
-   )
-    ,
-    links.map(formatLink).map(box).join(h(1fr))
+   ),
+    links
+        .map(formatLink)
+        .map(box)
+        .join(h(1em))
   )
 
   text(size:10pt, tagline)

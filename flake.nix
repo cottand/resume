@@ -4,13 +4,18 @@
 
   outputs = { nixpkgs, utils, ... }:
     (utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
+      let
+        pkgs = import nixpkgs { inherit system; };
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [ pkgs.fish pkgs.texlive.combined.scheme-full pkgs.typst ];
+          packages = [
+            pkgs.fish
+            pkgs.texlive.combined.scheme-full
+            pkgs.typst
+          ];
+          TYPST_FONT_PATHS = "${pkgs.google-fonts}/share/fonts/truetype:${pkgs.font-awesome}/share/fonts/opentype";
           shellHook = "fish && exit";
-          TYPST_FONT_PATHS =  "${pkgs.google-fonts}/share/fonts/truetype:${pkgs.font-awesome}/share/fonts/opentype";
         };
       }));
 

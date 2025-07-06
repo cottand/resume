@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.5.0": fa-icon
+#import "@preview/fontawesome:0.5.0": fa-icon, fa-stack
 
 #let primary_colour = rgb(38, 119, 138)
 #let link_colour = rgb(38, 119, 138)
@@ -6,14 +6,16 @@
 #let icon(name, shift: 1.5pt, boxed: true) = {
   box(
     baseline: shift,
-    //height: 20pt,
-    //width: 20pt,
-    fill: if boxed { primary_colour } else { white }, inset: (x: 2.6pt, y: 2.6pt),
-    //outset: 2pt,
-    radius: 0pt, fa-icon(name, fill: if boxed { white } else { primary_colour }),
-    //text(size:10pt, weight: "regular", stroke: 0.4pt + white, fill: black.transparentize(100%), font: ("Font Awesome 6 Free", "Font Awesome 6 Brands"), iconText)
+    inset: 2pt, outset: 2pt, radius: 0pt, if boxed {
+      let boxSize = 14pt
+      fa-stack(
+        fa-icon-args: (solid: true), ("square", (fill: primary_colour, size: boxSize)), (name, (fill: white, size: boxSize * 50%)),
+      )
+    } else {
+      fa-icon(name, fill: if boxed { white } else { primary_colour })
+    },
   )
-  h(3pt)
+  h(0.2em)
 }
 
 #let term(period, location) = {
@@ -33,7 +35,7 @@
   set list(
     indent: 0em, body-indent: 0.6em, marker: text(fill: primary_colour, weight: "bold", "•"),
   )
-  set page(margin: (top: 1cm, bottom: 0.8cm, left: 1.6cm, right: 1.6cm))
+  set page(margin: (top: 1.6cm, bottom: 1.6cm, left: 1.6cm, right: 1.6cm))
 
   show heading.where(level: 1) : it => text(16pt, [#{ it.body } #v(0.5pt)])
 
@@ -54,7 +56,7 @@
 
   let formatLink(service) = {
     set text(8pt)
-    let icon = icon.with(shift: 3pt)
+    let icon = icon.with(shift: 5pt)
     icon(service.icon)
     if "display" in service.keys() {
       link(service.link)[#{ service.display }]
@@ -69,6 +71,7 @@
     ), links
     .map(formatLink)
     .map(box)
+   // .join()
     .join(h(1em)),
   )
 

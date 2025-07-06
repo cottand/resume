@@ -27,13 +27,13 @@
 
 #vantage(
   name: "Nico D'Cotta", links: (
-    (icon: "envelope", link: "mailto:nico@dcotta.com"), (
-      icon: "globe", link: "https://nico.dcotta.com", display: "nico.dcotta.com",
+    (icon: "at", link: "mailto:nico@dcotta.com"), (
+      icon: "earth-europe", link: "https://nico.dcotta.com", display: "nico.dcotta.com",
     ), (
       icon: "github", link: "https://github/cottand", display: "github/cottand",
     ), (
       icon: "linkedin-in", link: "https://linkedin.com/in/nicodcotta", display: "linkedin/nicodcotta",
-    ), (icon: "location-pin", link: "", display: "London, UK"),
+    ), (icon: "location-dot", link: "", display: "London, UK"),
   ), tagline: [
     Backend Software Engineer with experience in building and scaling distributed
     systems, as well as in deploying and securing platform infrastructure. Domain

@@ -11,7 +11,6 @@
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.fish
-            pkgs.texlive.combined.scheme-full
             pkgs.typst
           ];
           TYPST_FONT_PATHS = "${pkgs.google-fonts}/share/fonts/truetype:${pkgs.font-awesome}/share/fonts/opentype";

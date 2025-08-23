@@ -103,7 +103,9 @@
 
     Nomad, Kubernetes, Consul, Vault, Terraform
 
-    AWS (EKS, EC2, S3, WAF + Shield, DynamoDB, IAM)
+    AWS (EKS, EC2, S3, WAF + Shield, IAM)
+
+    GCP (IAM, BigQuery, Cloud Storage)
 
     gRPC + protobufs, Kafka, Akka, PostgreSQL, Redis, Cassandra, APM, Docker, React
 
@@ -129,7 +131,7 @@
     == Actual Languages
 
     #grid(
-      columns: 2, gutter: 1em, [- English:], [bilingual], [- Spanish:], [native], [- French:], [bilingual], [- Portuguese:], [advanced level],
+      columns: 2, gutter: 1em, [- Spanish:], [native],  [- English:], [bilingual], [- French:], [bilingual], [- Portuguese:], [advanced],
       //[- Turkish:], [getting there],
     )
 
